@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 
+// Load environment variables from .env file
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,14 +21,16 @@ const pool = mysql.createPool({
 
 // Serve HTML page
 app.get('/', (req, res) => {
-  const sql = `SELECT FirstName, LastName, Department, Salary, HireDate FROM Employees`;
+  const sql = `SELECT FirstName, LastName, Department, Salary, HireDate FROM Employees`; // Adjusted to match new data
 
+  // Executing the query
   pool.query(sql, (err, results) => {
     if (err) {
         console.error('❌ Query error:', err);
         return res.status(500).send(`<h3>Database query failed: ${err.message}</h3>`);
     }
 
+    // Creating the HTML table
     let html = `
     <!DOCTYPE html>
     <html lang="en">
@@ -40,8 +43,9 @@ app.get('/', (req, res) => {
     <body class="container">
       <h2 class="mb-4">Employees List</h2>
       <table class="table table-striped table-bordered">
-        <thead class="bg-success text-white">
+        <thead class="bg-success text-white"> // Changed to a green header
           <tr>
+            // Adjusted table headers to match new data
             <th>First Name</th>
             <th>Last Name</th>
             <th>Department</th>
@@ -55,6 +59,7 @@ app.get('/', (req, res) => {
       results.forEach(row => {
         html += `
           <tr>
+            // Adjusted to match new data
             <td>${row.FirstName}</td>
             <td>${row.LastName}</td>
             <td>${row.Department}</td>
@@ -76,6 +81,7 @@ app.get('/', (req, res) => {
   });
 });
 
+// Start the server and listing the specific port to go to
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
 });

@@ -1,3 +1,4 @@
+-- Creating table Employees
 CREATE TABLE Employees (
     ID INT PRIMARY KEY,
     FirstName VARCHAR(50),
@@ -7,6 +8,7 @@ CREATE TABLE Employees (
     HireDate DATE
 );
 
+-- Inserting 100 records into Employees table Note: AI assisted with the data generation
 INSERT INTO Employees (ID, FirstName, LastName, Department, Salary, HireDate) VALUES
 (1, 'Alice', 'Morgan', 'Engineering', 85000, '2018-03-15'),
 (2, 'Bob', 'Carter', 'Marketing', 62000, '2019-06-01'),
