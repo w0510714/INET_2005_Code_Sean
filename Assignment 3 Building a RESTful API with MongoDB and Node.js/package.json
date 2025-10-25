@@ -1,0 +1,27 @@
+{
+  "name": "inet2005-mflix-api-starter",
+  "version": "1.0.0",
+  "description": "INET 2005 – Node.js + Express API for sample_mflix movies collection",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "INET2005",
+    "Express",
+    "MongoDB",
+    "MFlix"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.20.0",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trivia Circuit</title>
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root{
+            --vibrant-1: #ff6b6b; /* coral */
+            --vibrant-2: #f7b500; /* bright amber */
+            --vibrant-3: #7c5cff; /* electric purple */
+            --accent-contrast: #ffffff;
+        }
+        body{
+            position: relative;
+            overflow-x: hidden;
+            color: #1f2430;
+            /* layered vibrant background: soft linear wash + colorful blobs */
+            background-image:
+              linear-gradient(180deg, rgba(124,92,255,0.06) 0%, rgba(255,107,107,0.03) 40%, rgba(247,181,0,0.02) 100%),
+              radial-gradient(circle at 10% 15%, rgba(124,92,255,0.16), transparent 18%),
+              radial-gradient(circle at 90% 85%, rgba(255,107,107,0.12), transparent 20%),
+              radial-gradient(circle at 75% 20%, rgba(247,181,0,0.08), transparent 22%);
+            background-blend-mode: screen, screen, normal, normal;
+          }
+
+        /* decorative blurred color blobs */
+        body::before{
+            content: "";
+            position: fixed;
+            left: -8%;
+            top: -12%;
+            width: 56vw;
+            height: 56vh;
+            background: radial-gradient(circle at 20% 30%, rgba(124,92,255,0.85), rgba(124,92,255,0.45) 40%, transparent 60%);
+            filter: blur(80px) saturate(120%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        body::after{
+            content: "";
+            position: fixed;
+            right: -6%;
+            bottom: -10%;
+            width: 48vw;
+            height: 48vh;
+            background: radial-gradient(circle at 80% 70%, rgba(255,107,107,0.82), rgba(247,181,0,0.5) 40%, transparent 65%);
+            filter: blur(72px) saturate(115%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .card-theme{
+            background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
+            border: 0;
+            box-shadow: 0 12px 30px rgba(40, 44, 63, 0.08);
+            position: relative;
+            z-index: 1; /* keep card above decorative blobs */
+        }
+        .btn-theme{
+            background: linear-gradient(90deg, var(--vibrant-3), var(--vibrant-1));
+            color: var(--accent-contrast);
+            border: none;
+            padding-left: 28px;
+            padding-right: 28px;
+            transition: transform .12s ease, filter .12s ease;
+        }
+        .btn-theme:hover{ transform: translateY(-2px); filter: brightness(.98); }
+        .lead-muted{ color: #5b6270; }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm card-theme">
+                    <div class="card-body text-center">
+                        <h1 class="card-title mb-4">Welcome to Trivia Circuit!</h1>
+                        <p class="text-muted mb-4 lead-muted">Test your knowledge with quick trivia rounds.</p>
+                        <form action="/game" method="GET">
+                            <button type="submit" class="btn btn-theme btn-lg rounded-pill">Start Game</button>
+                        </form>
+                    </div>
+                </div>
+                <p class="text-center text-muted small mt-3">Built with EJS & Bootstrap</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
